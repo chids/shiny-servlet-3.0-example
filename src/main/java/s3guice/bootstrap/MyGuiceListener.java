@@ -2,7 +2,7 @@ package s3guice.bootstrap;
 
 import javax.servlet.annotation.WebListener;
 
-import s3guice.resource.HelloResource;
+import s3guice.resource.BookResource;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -18,7 +18,7 @@ public class MyGuiceListener extends GuiceServletContextListener {
 		return Guice.createInjector(new JerseyServletModule() {
 			@Override
 			protected void configureServlets() {
-				bind(HelloResource.class);
+				bind(BookResource.class);
 
 				serve("/*").with(GuiceContainer.class);
 			}
