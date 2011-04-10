@@ -1,5 +1,8 @@
 package s3guice.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.AllArgsConstructor;
@@ -10,7 +13,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @XmlRootElement
+@Entity
 public class Book {
-	private String title, author;
+	@Id
+	private int id;
+
+	@Column(nullable = false)
+	private String title;
+
+	@Column(nullable = false)
+	private String author;
+
+	@Column
 	private int publishYear;
 }
